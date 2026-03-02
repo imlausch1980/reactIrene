@@ -1,22 +1,28 @@
+import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget'
+import { useCart } from '../context/CartContext'
 
 function NavBar() {
+  const { getTotalItems } = useCart()
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <Link to="/" className="navbar-logo">
           <img src="/logopasteleria.jpg" alt="Logo Pastelería" className="logo-image" />
           <span className="logo-text">Mi Pastelería</span>
-        </div>
+        </Link>
         
         <ul className="nav-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#productos">Productos</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><Link to="/">Inicio</Link></li>
+          <li><Link to="/category/tortas">Tortas</Link></li>
+          <li><Link to="/category/postres">Postres</Link></li>
+          <li><Link to="/category/pasteles">Pasteles</Link></li>
         </ul>
 
-        <CartWidget />
+        <Link to="/cart" className="cart-link">
+          <CartWidget />
+        </Link>
       </div>
     </nav>
   )

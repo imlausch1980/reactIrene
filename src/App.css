@@ -1,24 +1,16 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
   padding: 0;
-  text-align: center;
-  padding-top: 8rem;
 }
 
 /* NavBar Styles */
 .navbar {
   background-color: #e91e63;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  margin: 0.5rem auto;
-  position: fixed;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 100;
-  border-radius: 10px;
 }
 
 .navbar-container {
@@ -36,10 +28,16 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-logo:hover {
+  opacity: 0.9;
 }
 
 .logo-image {
-  height: 4rem;
+  height: 3rem;
   width: auto;
   border-radius: 50%;
   object-fit: cover;
@@ -65,7 +63,8 @@
 }
 
 .nav-links a:hover {
-  color: #3498db;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* CartWidget Styles */
@@ -73,7 +72,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #34495e;
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   cursor: pointer;
@@ -81,37 +80,50 @@
 }
 
 .cart-widget:hover {
-  background-color: #3498db;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .cart-widget span:first-child {
   font-size: 1.5rem;
 }
 
+.cart-widget .cart-icon {
+  width: 24px;
+  height: 24px;
+}
+
 .cart-count {
   color: #fff;
   font-weight: bold;
-  background-color: #e74c3c;
+  background-color: #ff5252;
   padding: 0.2rem 0.5rem;
   border-radius: 12px;
   font-size: 0.8rem;
 }
 
-/* ItemListContainer Styles */
-.item-list-container {
-  padding: 2rem;
-  background-color: #ecf0f1;
-  border-radius: 8px;
-  margin: 2rem;
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    flex: 1 1 100%;
+    order: 3;
+  }
+
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+
+  .logo-image {
+    height: 2.5rem;
+  }
 }
 
-.item-list-container h2 {
-  color: #2c3e50;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.item-list-container p {
-  color: #34495e;
-  font-size: 1.1rem;
-}
